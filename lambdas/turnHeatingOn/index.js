@@ -1,9 +1,7 @@
 var AWS = require('aws-sdk');
 
 var iotdata = new AWS.IotData({
-    endpoint:"ab1e6p1gfdk1g-ats.iot.eu-central-1.amazonaws.com",
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    endpoint:"ab1e6p1gfdk1g-ats.iot.eu-central-1.amazonaws.com"
 });
 
 const postData = JSON.stringify({state:{desired:{heat:true}}})
