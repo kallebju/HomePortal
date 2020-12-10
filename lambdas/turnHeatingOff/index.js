@@ -7,8 +7,7 @@ var iotdata = new AWS.IotData({
 const postData = JSON.stringify({state:{desired:{heat:false}}})
 var params = {
     payload: postData,
-    thingName: 'BasementRPi',
-    shadowName: 'Heater'
+    thingName: 'BasementRPi'
 };
   
 exports.handler = async function(event) {
