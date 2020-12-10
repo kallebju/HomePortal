@@ -4,7 +4,7 @@ var iotdata = new AWS.IotData({
     endpoint:"ab1e6p1gfdk1g-ats.iot.eu-central-1.amazonaws.com"
 });
 
-const postData = JSON.stringify({state:{desired:{heat:false}}})
+const postData = JSON.stringify({state:{desired:{heat:"false"}}})
 var params = {
     payload: postData,
     thingName: 'BasementRPi'
