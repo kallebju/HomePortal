@@ -17,7 +17,7 @@ exports.handler = async function(event) {
             }
             else{
                 console.log(`Response from getThingShadow: ${JSON.stringify(data)}`)
-                resolve(data.reported)
+                resolve(data.payload.reported)
             }     
         })
         });
