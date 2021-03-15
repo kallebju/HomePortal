@@ -10,7 +10,7 @@ var params = {
   
 exports.handler = async function(event) {
     const promise = new Promise((resolve, reject) => {
-        iotdata.getThingsShadow(params, (err,data) => {
+        iotdata.getThingShadow(params, (err,data) => {
             if (err){
                 console.log('An error has occured: ',err.errorMessage)
                 reject(err)
