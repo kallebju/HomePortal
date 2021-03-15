@@ -1,5 +1,17 @@
 <div class="body">
   <app-toolbar></app-toolbar>
+  <amplify-authenticator *ngIf="currentUser.authState !== 'signedin'">
+    <amplify-sign-in 
+        hideSignUp=True
+        usernameAlias="email"
+        slot="sign-in"
+    ></amplify-sign-in>
+    <amplify-forgot-password
+    usernameAlias="email"
+    slot="forgot-password"
+  ></amplify-forgot-password>
 
-  <app-heating-control></app-heating-control> <router-outlet></router-outlet>
+  </amplify-authenticator>
+  <app-heating-control *ngIf="currentUser.authState === 'signedin' && currentUser.user"></app-heating-control> 
+  <router-outlet></router-outlet>
 </div>

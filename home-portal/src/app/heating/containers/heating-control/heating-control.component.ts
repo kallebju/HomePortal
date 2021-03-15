@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { HeatingFacadeService } from '../../heating.facade';
 
@@ -8,7 +8,7 @@ import { HeatingFacadeService } from '../../heating.facade';
   styleUrls: ['./heating-control.component.sass'],
 })
 export class HeatingControlComponent implements OnInit {
-  constructor(private heatingService: HeatingFacadeService) {}
+  constructor(private heatingService: HeatingFacadeService, private changeDetector: ChangeDetectorRef) {}
   heatingStatus;
 
   ngOnInit(): void {
@@ -16,5 +16,6 @@ export class HeatingControlComponent implements OnInit {
   }
   onHeatingToggle(event: MatSlideToggleChange) {
     this.heatingService.heatingButtonToggled(event.checked);
+    this.changeDetector.detectChanges();
   }
 }

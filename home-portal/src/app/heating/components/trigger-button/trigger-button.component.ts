@@ -18,4 +18,5 @@ export class TriggerButtonComponent implements OnInit {
   onButtonToggle(event: MatSlideToggleChange) {
     this.buttonToggled.emit(event);
   }
+  
 }

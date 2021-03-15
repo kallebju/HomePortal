@@ -9,11 +9,15 @@
   <span>Ebbemåla Control Panel</span>
   <span class="example-spacer"></span>
 
+  <div *ngIf="currentUser">
   <button
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with share icon"
+    (click)="signOut()"
+    *ngIf="currentUser.authState === 'signedin' && currentUser.user"
   >
     <mat-icon>exit_to_app</mat-icon>
   </button>
+</div>
 </mat-toolbar>
