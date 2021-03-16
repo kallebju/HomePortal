@@ -1,21 +1,28 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { throwError } from "rxjs";
+import { Observable, throwError } from "rxjs";
 import { catchError, retry, tap } from 'rxjs/operators';
+import { environment } from "../../environments/environment";
 
+export interface HeatType  {
+    heat: boolean
+}
 @Injectable({ providedIn: 'root' })
 export class HeatingButtonService {
     constructor(private http: HttpClient){}
-    private onUrl = "https://rx5wu7du81.execute-api.eu-central-1.amazonaws.com/beta/heating/on"
-    private offUrl= "https://rx5wu7du81.execute-api.eu-central-1.amazonaws.com/beta/heating/off"
 
+    private onUrl = environment.apiUrl + "/heating/on"
+    private offUrl= environment.apiUrl + "/heating/off"
+    private getUrl = environment.apiUrl + "/heating"
+
+    
     public turnHeatingOn() {
         return this.http.put(this.onUrl, {})
           .pipe(
               tap(
-                data => console.log(data),
-                error => catchError(this.handleError)
-              )
+                data => console.log(data)
+              ),
+              catchError(this.handleError)
           );
     }
     public turnHeatingOff() {
@@ -23,8 +30,18 @@ export class HeatingButtonService {
           .pipe(
               tap(
                 data => console.log(data),
-                error => this.handleError(error)
-              )
+              ),
+              catchError(this.handleError)
+          );
+    }
+
+    public getHeatingStatus(): Observable<HeatType> {
+        return this.http.get<HeatType>(this.getUrl, {})
+          .pipe(
+              tap(
+                data => console.log(data),
+              ),
+              catchError(this.handleError)
           );
     }
 

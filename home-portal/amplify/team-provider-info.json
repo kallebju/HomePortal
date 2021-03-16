@@ -1,25 +1,31 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-homeportal-dev-212635-authRole",
-      "UnauthRoleArn": "arn:aws:iam::811197034876:role/amplify-homeportal-dev-212635-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::811197034876:role/amplify-homeportal-dev-212635-authRole",
-      "Region": "eu-central-1",
-      "DeploymentBucketName": "amplify-homeportal-dev-212635-deployment",
-      "UnauthRoleName": "amplify-homeportal-dev-212635-unauthRole",
-      "StackName": "amplify-homeportal-dev-212635",
-      "StackId": "arn:aws:cloudformation:eu-central-1:811197034876:stack/amplify-homeportal-dev-212635/97b817e0-7b95-11eb-afd6-02d4c868af5c",
-      "AmplifyAppId": "d3ahnhw9vutmhc"
-    },
-    "categories": {
-      "auth": {
-        "homeportald425aa5e": {
-          "userPoolId": "eu-central-1_SAx6QGwWk",
-          "userPoolName": "HomePortalEbbemala",
-          "webClientId": "5qggu0gd4v4gffq270l9hof4m7",
-          "nativeClientId": "3ntp82u9fh3sa6i2jakste69vv"
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-homeportal-dev-212635-authRole",
+            "UnauthRoleArn": "arn:aws:iam::811197034876:role/amplify-homeportal-dev-212635-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::811197034876:role/amplify-homeportal-dev-212635-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-homeportal-dev-212635-deployment",
+            "UnauthRoleName": "amplify-homeportal-dev-212635-unauthRole",
+            "StackName": "amplify-homeportal-dev-212635",
+            "StackId": "arn:aws:cloudformation:eu-central-1:811197034876:stack/amplify-homeportal-dev-212635/97b817e0-7b95-11eb-afd6-02d4c868af5c",
+            "AmplifyAppId": "d3ahnhw9vutmhc"
+        },
+        "categories": {
+            "auth": {
+                "homeportald425aa5e": {
+                    "userPoolId": "eu-central-1_SAx6QGwWk",
+                    "userPoolName": "HomePortalEbbemala",
+                    "webClientId": "5qggu0gd4v4gffq270l9hof4m7",
+                    "nativeClientId": "3ntp82u9fh3sa6i2jakste69vv"
+                }
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3ahnhw9vutmhc",
+                    "type": "cicd"
+                }
+            }
         }
-      }
     }
-  }
 }

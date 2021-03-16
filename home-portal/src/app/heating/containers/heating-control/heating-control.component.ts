@@ -12,7 +12,7 @@ export class HeatingControlComponent implements OnInit {
   heatingStatus;
 
   ngOnInit(): void {
-    this.heatingStatus = this.heatingService.getHeatingStatus();
+    this.heatingStatus = this.heatingService.getHeatingStatus().subscribe(status => this.heatingStatus = status);
   }
   onHeatingToggle(event: MatSlideToggleChange) {
     this.heatingService.heatingButtonToggled(event.checked);

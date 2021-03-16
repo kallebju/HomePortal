@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { HeatingButtonService } from '../services/heating-button.service';
 
 @Injectable()
 export class HeatingFacadeService {
-  constructor(private heatingService: HeatingButtonService){}
+  private heatingStatus = new BehaviorSubject<boolean>(false);
+
+  constructor(private heatingService: HeatingButtonService){
+    this.heatingService.getHeatingStatus().subscribe(data => this.heatingStatus.next(data.heat))
+  }
+  
   heatingButtonToggled(status: boolean) {
     if (status === true) {
       // HTTP PUT turn_on_heating
@@ -13,8 +19,8 @@ export class HeatingFacadeService {
       this.heatingService.turnHeatingOff().subscribe();
     }
   }
-  getHeatingStatus(): boolean {
-    // HTTP GET status
-    return true;
+  getHeatingStatus() {
+    console.log(this.heatingStatus)
+    return this.heatingStatus.asObservable();
   }
 }
